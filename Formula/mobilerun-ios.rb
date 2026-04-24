@@ -1,27 +1,27 @@
 class MobilerunIos < Formula
   desc "Bridge a local iPhone to the Mobilerun cloud over a single websocket"
   homepage "https://github.com/droidrun/mobilerun-ios"
-  version "0.1.2"
+  version "0.1.3"
 
   on_macos do
     on_arm do
-      url "https://media.mobilerun.ai/releases/mobilerun-ios/v0.1.2/mobilerun-ios-v0.1.2-darwin-arm64"
-      sha256 "69e4258e98f7f82e9369236c8741541a15875f65f957d3a7fb2de6014e7a7042"
+      url "https://media.mobilerun.ai/releases/mobilerun-ios/v0.1.3/mobilerun-ios-v0.1.3-darwin-arm64"
+      sha256 "4f49068919501a347349f49d52cc411613090132679aa372ee095dcd9c765f57"
     end
     on_intel do
-      url "https://media.mobilerun.ai/releases/mobilerun-ios/v0.1.2/mobilerun-ios-v0.1.2-darwin-amd64"
-      sha256 "cc9562b0c6bc6f821947d9a44b5cfcfb98178b41dfa58564448b20e80172a9c0"
+      url "https://media.mobilerun.ai/releases/mobilerun-ios/v0.1.3/mobilerun-ios-v0.1.3-darwin-amd64"
+      sha256 "c83ef647ac8a953e872845926ebdb15ac38e4ac67dabe668a7f47ca7c0a4a554"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://media.mobilerun.ai/releases/mobilerun-ios/v0.1.2/mobilerun-ios-v0.1.2-linux-arm64"
-      sha256 "ca5a6ff356b56e79bc76c33624ccb57a06f904ee04b6af941d62512d059b24a2"
+      url "https://media.mobilerun.ai/releases/mobilerun-ios/v0.1.3/mobilerun-ios-v0.1.3-linux-arm64"
+      sha256 "6e56e358ccf6a34695bd14a0522f97106dcc62ad5e2d7d1aeb7e9be7ef51efc1"
     end
     on_intel do
-      url "https://media.mobilerun.ai/releases/mobilerun-ios/v0.1.2/mobilerun-ios-v0.1.2-linux-amd64"
-      sha256 "ed6ccde9c4e0a116abf156419dd80aaae144c432f45e7fdf9683c2433dd705b9"
+      url "https://media.mobilerun.ai/releases/mobilerun-ios/v0.1.3/mobilerun-ios-v0.1.3-linux-amd64"
+      sha256 "7d4124c16a5f3467f44647b03dd533fd03f832e0401c6a9e042698e1f2cbf297"
     end
   end
 
