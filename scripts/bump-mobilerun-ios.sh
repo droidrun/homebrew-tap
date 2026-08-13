@@ -19,7 +19,7 @@ case "$tag" in
 esac
 version="${tag#v}"
 
-base="https://media.mobilerun.ai/releases/mobilerun-ios/${tag}"
+base="https://github.com/droidrun/mobilerun-ios-releases/releases/download/${tag}"
 sums="$(curl -fsSL "${base}/SHA256SUMS")"
 
 sha_for() {
@@ -44,7 +44,7 @@ formula="$(dirname "$0")/../Formula/mobilerun-ios.rb"
 cat > "$formula" <<EOF
 class MobilerunIos < Formula
   desc "Bridge a local iPhone to the Mobilerun cloud over a single websocket"
-  homepage "https://github.com/droidrun/mobilerun-ios"
+  homepage "https://github.com/droidrun/mobilerun-ios-releases"
   version "${version}"
 
   on_macos do
