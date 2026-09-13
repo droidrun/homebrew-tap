@@ -3,6 +3,11 @@ class MobilerunIos < Formula
   homepage "https://github.com/droidrun/mobilerun-ios-releases"
   version "0.4.0"
 
+  # Portal recording and the browser-compat H.264 transcoder spawn ffmpeg; the
+  # release is validated against FFmpeg 8. ffmpeg@8 is keg-only, and the binary
+  # looks for it under `opt/ffmpeg@8` when `ffmpeg` is not on PATH.
+  depends_on "ffmpeg@8"
+
   on_macos do
     on_arm do
       url "https://github.com/droidrun/mobilerun-ios-releases/releases/download/v0.4.0/mobilerun-ios-v0.4.0-darwin-arm64"
