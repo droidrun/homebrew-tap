@@ -3,7 +3,7 @@
 #
 # Usage: ./scripts/bump-mobilerun-ios.sh v0.2.0
 #
-# Reads SHA256SUMS from R2 for the tag and writes a fresh formula.
+# Reads SHA256SUMS from the public GitHub release and writes a fresh formula.
 
 set -euo pipefail
 
@@ -13,17 +13,20 @@ if [ $# -ne 1 ]; then
 fi
 
 tag="$1"
-case "$tag" in
-    v*) ;;
-    *) echo "error: tag must start with v (got: $tag)" >&2; exit 1 ;;
-esac
+if [[ ! "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    echo "error: tag must be a stable version such as v0.2.0" >&2
+    exit 1
+fi
 version="${tag#v}"
 
 base="https://github.com/droidrun/mobilerun-ios-releases/releases/download/${tag}"
 sums="$(curl -fsSL "${base}/SHA256SUMS")"
 
 sha_for() {
-    echo "$sums" | awk -v b="mobilerun-ios-${tag}-$1" '$2 == b {print $1}'
+    echo "$sums" | awk -v b="mobilerun-ios-${tag}-$1" '
+        $2 == b { value = tolower($1); count++ }
+        END { if (count != 1) exit 1; print value }
+    '
 }
 
 darwin_arm="$(sha_for darwin-arm64)"
@@ -31,10 +34,9 @@ darwin_amd="$(sha_for darwin-amd64)"
 linux_arm="$(sha_for linux-arm64)"
 linux_amd="$(sha_for linux-amd64)"
 
-for name in darwin_arm darwin_amd linux_arm linux_amd; do
-    val="$(eval echo \"\$$name\")"
-    if [ -z "$val" ]; then
-        echo "error: no SHA256 entry for $name in ${base}/SHA256SUMS" >&2
+for val in "$darwin_arm" "$darwin_amd" "$linux_arm" "$linux_amd"; do
+    if [[ ! "$val" =~ ^[a-f0-9]{64}$ ]]; then
+        echo "error: invalid SHA256 entry in ${base}/SHA256SUMS" >&2
         exit 1
     fi
 done
