@@ -25,11 +25,23 @@ brew install mobilerun-ios
 
 ## Updating formulae
 
-Binaries are hosted on R2 at `https://media.mobilerun.ai/releases/<formula>/<tag>/`. Releases in the upstream repos bump their formula here automatically by running `scripts/bump-mobilerun-ios.sh <tag>` and pushing the result.
+Binaries and SHA256SUMS are hosted in the public
+[droidrun/mobilerun-ios-releases](https://github.com/droidrun/mobilerun-ios-releases/releases)
+repository. Publishing a stable upstream release requests a formula-update PR.
+A maintainer reviews the version, URLs and checksums and merges the PR before the
+update becomes available through this tap.
 
-Manual bump (if automation is down):
+To request the same reviewed update manually:
 
 ```bash
-./scripts/bump-mobilerun-ios.sh v0.2.0
-git add Formula/mobilerun-ios.rb && git commit -m "mobilerun-ios v0.2.0" && git push
+gh workflow run update-mobilerun-ios.yml --repo droidrun/homebrew-tap -f tag=v0.2.0
 ```
+
+`AUTOMATION_PR_TOKEN` must have Contents and Pull requests read/write access to
+this repository. The organization policy blocking PR creation with the default
+`GITHUB_TOKEN` remains in place. The automation never approves or merges its own
+proposals.
+
+For local development, use a feature branch, run
+`scripts/bump-mobilerun-ios.sh <tag>` and `python3 -m unittest discover -s tests`,
+then open a PR. Do not push formula updates directly to `main`.
