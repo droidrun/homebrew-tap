@@ -1,7 +1,7 @@
 class MobilerunIos < Formula
   desc "Bridge a local iPhone to the Mobilerun cloud over a single websocket"
   homepage "https://github.com/droidrun/mobilerun-ios-releases"
-  version "0.6.0"
+  version "0.7.1"
 
   # Portal recording and the browser-compat H.264 transcoder spawn ffmpeg; the
   # release is validated against FFmpeg 8. ffmpeg@8 is keg-only, and the binary
@@ -10,23 +10,23 @@ class MobilerunIos < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/droidrun/mobilerun-ios-releases/releases/download/v0.6.0/mobilerun-ios-v0.6.0-darwin-arm64"
-      sha256 "42460567e660144dd75a154200b3500a911124e81c6ebd86ea68935f87c2db55"
+      url "https://github.com/droidrun/mobilerun-ios-releases/releases/download/v0.7.1/mobilerun-ios-v0.7.1-darwin-arm64"
+      sha256 "60e3008bd4b14eee119558d0f4ece77c5b4e05eb0f465713b6db0a35cc66b0a8"
     end
     on_intel do
-      url "https://github.com/droidrun/mobilerun-ios-releases/releases/download/v0.6.0/mobilerun-ios-v0.6.0-darwin-amd64"
-      sha256 "fd1285113445e8aa3b5c103ff1578ae95f5b05ab6630f243e9099827249c2c85"
+      url "https://github.com/droidrun/mobilerun-ios-releases/releases/download/v0.7.1/mobilerun-ios-v0.7.1-darwin-amd64"
+      sha256 "35f1ddaefd5a426337f373148e5e4761f902d41c7bbfca0da98b3a5e5a43ee36"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/droidrun/mobilerun-ios-releases/releases/download/v0.6.0/mobilerun-ios-v0.6.0-linux-arm64"
-      sha256 "ec8491fe05baf998633085c3632f8b91d134b79512e0f8a6fd3859fd678e5709"
+      url "https://github.com/droidrun/mobilerun-ios-releases/releases/download/v0.7.1/mobilerun-ios-v0.7.1-linux-arm64"
+      sha256 "89b6cf00973a1e8a6d447d6e44bd9409bdd7ba0f405e284a4d0827fa245afdeb"
     end
     on_intel do
-      url "https://github.com/droidrun/mobilerun-ios-releases/releases/download/v0.6.0/mobilerun-ios-v0.6.0-linux-amd64"
-      sha256 "8df508fd70cf7e7053a369abadf54cc6f12b2da2735784f83372b477ea378b40"
+      url "https://github.com/droidrun/mobilerun-ios-releases/releases/download/v0.7.1/mobilerun-ios-v0.7.1-linux-amd64"
+      sha256 "00393dcae95643a1c8edf8f2b282a2df327f88ac89278b81a6c5992f16dc94c3"
     end
   end
 
